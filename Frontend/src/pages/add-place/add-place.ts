@@ -16,9 +16,11 @@ declare var cordova: any;
   templateUrl: 'add-place.html'
 })
 export class AddPlacePage {
+  selectOptions = ['<15mins', '15-30mins', '>30mins'];
+  
   location: Location = {
-    lat: 40.7624324,
-    lng: -73.9759827
+    lat: 40.443646,
+    lng: -79.944697
   };
   locationIsSet = false;
   imageUrl = '';
@@ -84,46 +86,4 @@ export class AddPlacePage {
       );
   }
 
-  onTakePhoto() {
-    this.camera.getPicture({
-      encodingType: this.camera.EncodingType.JPEG,
-      correctOrientation: true
-    })
-      .then(
-        imageData => {
-          const currentName = imageData.replace(/^.*[\\\/]/, '');
-          const path = imageData.replace(/[^\/]*$/, '');
-          const newFileName = new Date().getUTCMilliseconds() + '.jpg';
-          this.file.moveFile(path, currentName, cordova.file.dataDirectory, newFileName)
-            .then(
-              (data: Entry) => {
-                this.imageUrl = data.nativeURL;
-                this.camera.cleanup();
-                // File.removeFile(path, currentName);
-              }
-            )
-            .catch(
-              (err: FileError) => {
-                this.imageUrl = '';
-                const toast = this.toastCtrl.create({
-                  message: 'Could not save the image. Please try again',
-                  duration: 2500
-                });
-                toast.present();
-                this.camera.cleanup();
-              }
-            );
-          this.imageUrl = imageData;
-        }
-      )
-      .catch(
-        err => {
-          const toast = this.toastCtrl.create({
-            message: 'Could not take the image. Please try again',
-            duration: 2500
-          });
-          toast.present();
-        }
-      );
-  }
 }
