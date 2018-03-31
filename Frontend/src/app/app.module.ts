@@ -10,20 +10,30 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyApp } from './app.component';
+import { WelcomePage } from '../pages/welcome/welcome';
 import { HomePage } from '../pages/home/home';
 import { AddPlacePage } from "../pages/add-place/add-place";
 import { PlacePage } from "../pages/place/place";
 import { SetLocationPage } from "../pages/set-location/set-location";
+import { EventListPage } from "../pages/event-list/event-list";
+import { ProfilePage } from "../pages/profile/profile";
 import { AgmCoreModule } from "angular2-google-maps/core";
 import { PlacesService } from "../services/places";
+import { ProfileService } from "../services/profile-service-mock";
+
+
+
 
 @NgModule({
   declarations: [
     MyApp,
+    WelcomePage,
     HomePage,
     AddPlacePage,
     PlacePage,
-    SetLocationPage
+    SetLocationPage,
+    EventListPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -37,10 +47,13 @@ import { PlacesService } from "../services/places";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    WelcomePage,
     HomePage,
     AddPlacePage,
     PlacePage,
-    SetLocationPage
+    SetLocationPage,
+    EventListPage,
+    ProfilePage
   ],
   providers: [
     File,
@@ -49,7 +62,8 @@ import { PlacesService } from "../services/places";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PlacesService
+    PlacesService,
+    ProfileService
   ]
 })
 export class AppModule {

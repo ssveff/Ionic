@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar>
@@ -95,7 +94,7 @@
             block
             type="submit"
             [disabled]="!f.valid || !locationIsSet"
-            (click)="onPost()">
+            (click)="popToRoot()">
             Post
           </button>
         </ion-col>

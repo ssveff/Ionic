@@ -9,6 +9,8 @@ import { SetLocationPage } from "../set-location/set-location";
 import { Location } from "../../models/location";
 import { PlacesService } from "../../services/places";
 
+import { WelcomePage } from "../welcome/welcome";
+
 declare var cordova: any;
 
 @Component({
