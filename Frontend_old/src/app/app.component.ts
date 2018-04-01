@@ -4,12 +4,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { WelcomePage } from '../pages/welcome/welcome';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
 import { EventListPage } from '../pages/event-list/event-list';
 import { ProfilePage } from '../pages/profile/profile';
-
-import { AuthService } from "../services/auth";
 
 
 export interface MenuItem {
