@@ -15,8 +15,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { MyApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from "../pages/login/login";
-import { SignupPage } from "../pages/signup/signup";
 
 import { AddPlacePage } from "../pages/add-place/add-place";
 import { PlacePage } from "../pages/place/place";
@@ -27,15 +25,6 @@ import { AgmCoreModule } from "angular2-google-maps/core";
 
 import { PlacesService } from "../services/places";
 import { ProfileService } from "../services/profile-service-mock";
-import { AuthService } from "../services/auth";
-
-
-export function jwtOptionsFactory(storage: Storage) {
-  return {
-    tokenGetter: () => storage.get('jwt_token'),
-    whitelistedDomains: ['localhost:8080']
-  }
-}
 
 
 @NgModule({
@@ -43,8 +32,6 @@ export function jwtOptionsFactory(storage: Storage) {
     MyApp,
     WelcomePage,
     HomePage,
-    LoginPage,
-    SignupPage,
     AddPlacePage,
     PlacePage,
     SetLocationPage,
@@ -54,14 +41,6 @@ export function jwtOptionsFactory(storage: Storage) {
   imports: [
     BrowserModule,
     HttpModule,
-    HttpClientModule,
-    JwtModule.forRoot({
-      jwtOptionsProvider: {
-      provide: JWT_OPTIONS,
-      useFactory: jwtOptionsFactory,
-      deps: [Storage]
-      }
-    }),
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
     CustomFormsModule,
@@ -74,8 +53,6 @@ export function jwtOptionsFactory(storage: Storage) {
     MyApp,
     WelcomePage,
     HomePage,
-    LoginPage,
-    SignupPage,
     AddPlacePage,
     PlacePage,
     SetLocationPage,
@@ -89,7 +66,6 @@ export function jwtOptionsFactory(storage: Storage) {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthService,
     PlacesService,
     ProfileService
   ]
