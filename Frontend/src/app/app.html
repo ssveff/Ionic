@@ -8,13 +8,15 @@
       <ion-list-header>
         Helping others is fine :)
       </ion-list-header>
-      <button menuClose ion-item *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)">
+      <button 
+        menuClose 
+        ion-item 
+        *ngFor="let menuItem of appMenuItems" 
+        (click)="openPage(menuItem)" >
         <ion-icon item-left [name]="menuItem.icon"></ion-icon>
         {{menuItem.title}}
       </button>
     </ion-list>
-
-    
 
     <ion-list>
       <ion-list-header>

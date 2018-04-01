@@ -4,8 +4,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { WelcomePage } from '../pages/welcome/welcome';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 import { EventListPage } from '../pages/event-list/event-list';
 import { ProfilePage } from '../pages/profile/profile';
+
+import { AuthService } from "../services/auth";
 
 
 export interface MenuItem {
@@ -21,12 +25,17 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = WelcomePage;
+  // signinPage = SigninPage;
+  // signupPage = SignupPage;
+  // isAuthenticated = false;
 
   appMenuItems: Array<MenuItem>;
 
   accountMenuItems: Array<MenuItem>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, 
+              public statusBar: StatusBar, 
+              public splashScreen: SplashScreen) {
         this.initializeApp();
 
         this.appMenuItems = [
